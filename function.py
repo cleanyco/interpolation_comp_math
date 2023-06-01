@@ -32,3 +32,5 @@ def choose_number_of_points():
 def print_functions():
     for i in range(len(FUNCTIONS)):
         print(str(i+1) + '. ' + str(FUNCTIONS[i].__str__()))
+
+# TODO написать функцию разбиения интервала на n отрезков
