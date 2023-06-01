@@ -19,6 +19,16 @@ FUNCTIONS = [
 def choose_function(number_of_function):
     return FUNCTIONS[number_of_function]
 
+
+def choose_interval():
+    a, b = int(input())
+    return a, b
+
+
+def choose_number_of_points():
+    return int(input())
+
+
 def print_functions():
     for i in range(len(FUNCTIONS)):
         print(str(i+1) + '. ' + str(FUNCTIONS[i].__str__()))

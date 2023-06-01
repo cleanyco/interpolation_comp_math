@@ -22,7 +22,6 @@ def lagrange(dots, x):
 # def gauss(dots, x):
 
 
-
 def get_finite_differences_table(dots):
     diff_table = PrettyTable()
 
