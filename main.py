@@ -2,6 +2,7 @@ from typing import Final
 
 import input
 import datetime
+import function
 import interpolation as interpol  # xD
 
 from interpolation import get_finite_differences_table
@@ -23,9 +24,23 @@ print('1. Файл')
 print('2. Клавиатура')
 print('3. Список функций')
 
-input_type = int(input())
+input_type = int(input()) # TODO сделать рефакторинг
 match input_type:
     case 1:
         print('Выбранный тип ввода: файл')
         table = input.get_table_from_file(FILENAME)
         print_table(table)
+    case 2:
+        print('Выбранный тип ввода: клавиатура')
+        table = input.get_table_from_keyboard()
+        print_table(table)
+    case 3:
+        print('Выбранный тип ввода: список функций')
+        function.print_functions()
+        print('Введите номер функции: ')
+        function_number = int(input())
+        function = function.choose_function(function_number)
+
+# TODO подсчет с помощью Лагранжа и Гаусса, сравнение, графики
+
+
