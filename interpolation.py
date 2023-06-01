@@ -19,6 +19,10 @@ def lagrange(dots, x):
 # TODO def lagrange_inaccuracy()
 
 
+# def gauss(dots, x):
+
+
+
 def get_finite_differences_table(dots):
     diff_table = PrettyTable()
 

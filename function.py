@@ -16,5 +16,5 @@ FUNCTIONS = [
 ]
 
 
-# def choose_function():
-    # TODO complete
+def choose_function(number_of_function):
+    return FUNCTIONS[number_of_function]
