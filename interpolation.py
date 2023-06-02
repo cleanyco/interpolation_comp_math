@@ -28,23 +28,40 @@ def gauss_t_first(t, n):
     return tmp
 
 
+def gauss_t_second(t, n):
+    tmp = t
+    for i in range(1, n):
+        if i == 1:
+            tmp *= t + ((i + 1) // 2)
+        else:
+            tmp *= t + ((-1) ** i) * ((i + 1) // 2)
+    return tmp
+
+
 def gauss_first_formula(dots, x):  # x > a
+    n = len(dots)
+
+    y = finite_differences(dots)
+    print(y)
+    result = y[n // 2][0]  # 3//2 ?
+    t = (x - dots[n // 2][0]) / (dots[1][0] - dots[0][0])  # t = (x - x_mid) / (x1 - x0)
+    for i in range(1, n):
+        result += gauss_t_first(t, i) * y[(n - i) // 2][i] / factorial(i)
+        # print(y[(n - i) // 2][i])
+
+    return round(result, 4)
+
+
+def gauss_second_formula(dots, x):
     n = len(dots)
 
     y = finite_differences(dots)
     result = y[n // 2][0]  # 3//2 ?
     t = (x - dots[n // 2][0]) / (dots[1][0] - dots[0][0])  # t = (x - x_mid) / (x1 - x0)
     for i in range(1, n):
-        result += gauss_t_first(t, i) * y[(n - i) // 2][i] / factorial(i)
-
-    return result
-
-
-# def gauss_second_formula(dots, x):
-#     n = len(dots)
-#
-#     y = finite_differences(dots)
-
+        result += gauss_t_second(t, i) * y[(n - i - 1) // 2][i] / factorial(i)
+        # print(str(gauss_t_second(t, i)) + '*' + str(y[(n - i - 1) // 2][i] / factorial(i)))
+    return round(result, 4)  # FIXME небольшая неточность
 
 def finite_differences(dots):
     n = len(dots)
