@@ -6,9 +6,9 @@ import datetime
 import function
 import interpolation as interpol  # xD
 
-from interpolation import get_finite_differences_table
+# from interpolation import get_finite_differences_table
 
-# dots = [[2.1, 3.759], [2.15, 4.186], [2.2, 4.922], [2.25, 5.349], [2.3, 5.928], [2.35, 6.419], [2.4, 7.084]]
+dots = [[0.1, 1.25], [0.2, 2.38], [0.3, 3.79], [0.4, 5.44], [0.5, 7.14]]
 # table = get_finite_differences_table(dots)
 # print(table)
 
@@ -45,6 +45,5 @@ match input_type:
         print('Такого типа ввода не существует!')
         exit(-1)
 
-# TODO подсчет с помощью Лагранжа и Гаусса, сравнение, графики
-
-
+print(interpol.gauss_first_formula(dots, 0.32))
+print(interpol.gauss_second_formula(dots, 0.28))
