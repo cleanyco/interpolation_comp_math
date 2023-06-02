@@ -1,7 +1,7 @@
 from typing import Final
 from sys import exit
 
-import table
+import table as tab
 import datetime
 import function
 import interpolation as interpol  # xD
@@ -9,7 +9,7 @@ import interpolation as interpol  # xD
 # from interpolation import get_finite_differences_table
 
 dots = [[0.1, 1.25], [0.2, 2.38], [0.3, 3.79], [0.4, 5.44], [0.5, 7.14]]
-# table = get_finite_differences_table(dots)
+# table = get_finite_differences_table(dots) FIXME
 # print(table)
 
 def print_table(table):
@@ -25,15 +25,15 @@ print('1. Файл')
 print('2. Клавиатура')
 print('3. Список функций')
 
-input_type = int(input())  # TODO сделать рефакторинг
+input_type = int(input())
 match input_type:
     case 1:
         print('Выбранный тип ввода: файл')
-        table = table.get_table_from_file(FILENAME)
+        table = tab.get_table_from_file(FILENAME)
         print_table(table)
     case 2:
         print('Выбранный тип ввода: клавиатура')
-        table = table.get_table_from_keyboard()
+        table = tab.get_table_from_keyboard()
         print_table(table)
     case 3:
         print('Выбранный тип ввода: список функций')

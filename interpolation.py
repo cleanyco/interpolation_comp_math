@@ -60,7 +60,7 @@ def gauss_second_formula(dots, x):
     for i in range(1, n):
         result += gauss_t_second(t, i) * y[(n - i - 1) // 2][i] / factorial(i)
         # print(str(gauss_t_second(t, i)) + '*' + str(y[(n - i - 1) // 2][i] / factorial(i)))
-    return round(result, 4)  # FIXME небольшая неточность
+    return round(result, 4)  # FIXME неправильно вычисляет начиная с некоторого члена
 
 def finite_differences(dots):
     n = len(dots)
